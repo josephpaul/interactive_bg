@@ -89,7 +89,7 @@
       } else {
         // For Desktop 
         // Animate only scaling when mouse enter
-        el.mouseenter(function(e) {
+        $("body").mouseenter(function(e) {
           if (settings.scale != 1) el.addClass("ibg-entering")
           el.find("> .ibg-bg").css({
             "-webkit-transform": "matrix(" + settings.scale + ",0,0," + settings.scale + ",0,0)",
@@ -121,10 +121,10 @@
               "-moz-transform": "matrix(" + settings.scale + ",0,0," + settings.scale + "," + newX + "," + newY + ")",
               "-o-transform": "matrix(" + settings.scale + ",0,0," + settings.scale + "," + newX + "," + newY + ")",
               "transform": "matrix(" + settings.scale + ",0,0," + settings.scale + "," + newX + "," + newY + ")",
-              "-webkit-transition": "none",
-              "-moz-transition": "none",
-              "-o-transition": "none",
-              "transition": "none"
+            "-webkit-transition": "-webkit-transform " + settings.animationSpeed + " linear",
+            "-moz-transition": "-moz-transform " + settings.animationSpeed + " linear",
+            "-o-transition": "-o-transform " + settings.animationSpeed + " linear",
+            "transition": "transform " + settings.animationSpeed + " linear"
             });
           }
         }).mouseleave(function(e) {
